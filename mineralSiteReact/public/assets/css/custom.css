@@ -1,0 +1,31 @@
+.transparent {
+  opacity: 0.5;
+}
+
+.not-transparent {
+  color: black;
+}
+.span {
+  background: black;
+  color: white;
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 5px;
+}
+
+.img-container {
+  margin: auto;
+  margin-top: 20px;
+}
+
+.image {
+}
+
+p span {
+  color: #e6a756;
+  font-weight: bold;
+}
+
+.moab {
+  max-height: 600px;
+}
