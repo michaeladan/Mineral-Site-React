@@ -6,10 +6,20 @@ import Collection from  "./pages/my-collection";
 import Layout from  "./pages/layout";
 import NoPage from  "./pages/NoPage";
 import data from "./data";
-import { useState } from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
+    // function collection(item) {
+    //     return (
+    //         <Card
+    //             key={item.id}
+    //             img={item.img}
+    //             title={item.title}
+    //             description={item.description}
+    //           />
+    //     )
+    //     }
+    //     {data.map(collection)}
 
   return (
     <BrowserRouter>

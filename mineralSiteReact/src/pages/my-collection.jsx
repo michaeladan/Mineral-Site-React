@@ -1,6 +1,11 @@
 import React from 'react';
+import ReactDom from "react-dom";
+import data from "../data";
 
-export default function Collection() {
+
+
+export default function Collection(props) {
+
     return (
         <div>
     <header>
@@ -10,140 +15,51 @@ export default function Collection() {
         </h1>
     </header>
 
+{/* <div className="btn-group">
+  <button type="button" className="btn btn-warning dropdown-toggle mx-3" data-bs-toggle="dropdown" aria-expanded="false">
+    Sort
+  </button>
+  <ul className="dropdown-menu">
+    <li><a className="dropdown-item" href="#">Recent</a></li>
+    <li><a className="dropdown-item" href="#">A - Z</a></li>
+    <li><a className="dropdown-item" href="#">By Category</a></li>
+  </ul>
+</div> */}
+
     <div className="dropdown">
-        <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+        <a className="btn btn-secondary dropdown-toggle mx-3 mt-1 px-4" href="#" role="button" id="dropdownMenuLink"
             data-bs-toggle="dropdown" aria-expanded="false">
             Sort
         </a>
 
         <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a className="dropdown-item" href="my-collection.html">Recent</a></li>
+            <li><a className="dropdown-item" href="/my-collection">Recent</a></li>
             <li><a className="dropdown-item" href="#">A-Z</a></li>
-            <li><a className="dropdown-item" href="#">Categories</a></li>
+            <li><a className="dropdown-item" href="#">By Category</a></li>
         </ul>
     </div>
 
-    <section>
+    <section >
         <div className="row m-auto">
-            <div className=" col-md-4 col-6 img-container">
+            {data.map((info) => {
+              const card = (
+                <div className=" col-md-4 col-6 img-container">
                 <div className="thumbnail image">
-                    <a href="public/assets/images/rocks5.jpg">
-                    <img className="rounded w-100" src="assets/images/rocks5.jpg" alt="rocks" /> 
-                    </a>
-                    <div className="caption">
-                        <p className="span rounded p-2 lh-sm">
-                            <span>Golden pyrite</span>
-                            <br/>
-                            This was found in the fields of Mordor. Taken after the great battle.
-                        </p>
-                    </div>
+                  <a href={info.fullImg}>
+                  <img className="rounded w-100" src={info.img} alt="rocks" />
+                  </a> 
+                <div className="caption">
+                  <p className="span rounded p-2 lh-sm">
+                   <span>{info.title}</span>
+                  <br/>
+                  {info.description}
+                  </p>
                 </div>
-            </div>
-            <div className=" col-md-4 col-6 img-container">
-                <div className="thumbnail image">
-                    <a href="assets/images/rocks6.jpg">
-                    <img className="rounded w-100" src="assets/images/rocks6.jpg" alt="rocks"/>
-                    </a>
-                    <div className="caption">
-                        <p className="span rounded p-2 lh-sm">
-                            <span>Lorem ipsum dolor sit</span>
-                            <br/>
-                            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua.
-                        </p>
-                    </div>
                 </div>
-            </div>
-             <div className=" col-md-4 col-6 img-container">
-                <div className="thumbnail image">
-                    <a href="assets/images/rocks3.jpg">
-                    <img className="rounded w-100" src="assets/images/rocks3.jpg" alt="rocks"/>
-                    </a>
-                    <div className="caption">
-                        <p className="span rounded p-2 lh-sm">
-                            <span>Lorem ipsum dolor sit</span>
-                            <br/>
-                            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua.
-                        </p>
-                    </div>
                 </div>
-            </div>
-            <div className=" col-md-4 col-6 img-container">
-                <div className="thumbnail image">
-                    <a href="assets/images/rocks8.jpg">
-                    <img className="rounded w-100" src="assets/images/rocks8.jpg" alt="rocks"/>
-                    </a>
-                    <div className="caption">
-                        <p className="span rounded p-2 lh-sm">
-                            <span>Lorem ipsum dolor sit</span>
-                            <br/>
-                            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className=" col-md-4 col-6 img-container">
-                <div className="thumbnail image">
-                    <a href="assets/images/rocks1.jpg">
-                    <img className="rounded w-100" src="assets/images/rocks1.jpg" alt="rocks"/>
-                    </a>
-                    <div className="caption">
-                        <p className="span rounded p-2 lh-sm">
-                            <span>Lorem ipsum dolor sit</span>
-                            <br/>
-                            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className=" col-md-4 col-6 img-container">
-                <div className="thumbnail image">
-                    <a href="assets/images/rocks5.jpg">
-                    <img className="rounded w-100" src="assets/images/rocks5.jpg" alt="rocks"/>
-                    </a>
-                    <div className="caption">
-                        <p className="span rounded p-2 lh-sm">
-                            <span>Lorem ipsum dolor sit</span>
-                            <br/>
-                            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className=" col-md-4 col-6 img-container">
-                <div className="thumbnail image">
-                    <a href="assets/images/rocks3.jpg">
-                    <img className="rounded w-100" src="assets/images/rocks3.jpg" alt="rocks"/>
-                    </a>
-                    <div className="caption">
-                        <p className="span rounded p-2 lh-sm">
-                            <span>Lorem ipsum dolor sit</span>
-                            <br/>
-                            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className=" col-md-4 col-6 img-container">
-                <div className="thumbnail image">
-                    <a href="assets/images/rocks4.jpg">
-                    <img className="rounded w-100" src="assets/images/rocks4.jpg" alt="rocks"/>
-                    </a>
-                    <div className="caption">
-                        <p className="span rounded p-2 lh-sm">
-                            <span>Lorem ipsum dolor sit</span>
-                            <br/>
-                            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            );
+         return card;
+        })}
         </div>
     </section>
     <section className="page-section about-heading">
@@ -174,15 +90,11 @@ export default function Collection() {
             </div>
         </div> 
     </section>
-    <footer className="footer text-faded text-center py-5">
-        <div className="container">
-            <p className="m-0 small">Copyright &copy; Chuck Adan 2022</p>
-        </div>
-    </footer>
-    {/* Bootstrap core JS */}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    {/* Bootstrap core JS
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> */}
     {/* Core theme JS */}
-    <script src="js/scripts.js"></script>
+    {/* <script src="js/scripts.js"></script> */}
         </div>
         )
         }

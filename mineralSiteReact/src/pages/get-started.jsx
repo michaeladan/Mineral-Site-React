@@ -35,11 +35,7 @@ export default function Started() {
             </div>
         </div>
     </section>
-    <footer className="footer text-faded text-center py-5">
-        <div className="container">
-            <p className="m-0 small">Copyright &copy; Chuck Adan 2022</p>
-        </div>
-    </footer>
+
     {/* Bootstrap core JS */}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     {/* Core theme JS */}
