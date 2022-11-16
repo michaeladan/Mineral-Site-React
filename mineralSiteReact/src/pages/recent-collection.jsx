@@ -1,37 +1,10 @@
-import { useState } from 'react';
+
 import data from "../data";
 
-export default function SortCollection() {
-
-    // const [ view, setView ] = useState([
-    //     {
-    //         // aToE: true,
-    //         // fToJ: false,
-    //         // kToO: false,
-    //         // pToT: false,
-    //         // uToZ: false
-    //     }
-    // ])
-
-    // function byName(a, b) {
-    //     if (a.title > b.title) {
-    //         return 1;
-    //     } else if (b.title > a.title) {
-    //         return -1;
-    //     } else {
-    //         return 0
-    //     }
-    // }
-    //  function sortName() {
-    //     return data.sort(byName)
-    // }
-    // const myData = data.sort((a, b) => a.id - b.id)
-    // console.log(sortName())
+export default function RecentCollection() {
 
     return (
-
         <div>
-
             <header>
                 <h1 className="site-heading text-center text-faded d-none d-lg-block">
                     <span className="site-heading-upper text-primary mb-3">Here are some of my favorite pieces</span>
@@ -46,36 +19,33 @@ export default function SortCollection() {
                 </a>
 
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a className="dropdown-item" href="/my-collection">Recent</a></li>
-                    <li><a className="dropdown-item" href="/my-collection-a2z">A-Z</a></li>
+                    <li><a className="dropdown-item" href="/recent-collection">Recent</a></li>
+                    <li><a className="dropdown-item" href="/sorted-collection">A-Z</a></li>
                 </ul>
             </div>
 
-            {/* <section style={{display: "none"}}> */}
             <section>
-                <div className="row m-auto">
 
-                    {data && data
-                        .sort((a, b) => a.title > b.title ? 1 : -1)
-                        .map(info => {
-                            const card = (
-                                <div className=" col-md-4 col-6 img-container" key={info.id}>
-                                    <div className="thumbnail image">
-                                        <a href={info.fullImg}>
-                                            <img className="rounded w-100" src={info.img} alt="rocks" />
-                                        </a>
-                                        <div className="caption">
-                                            <p className="span rounded p-2 lh-sm">
-                                                <span>{info.title}</span>
-                                                <br />
-                                                {info.description}
-                                            </p>
-                                        </div>
+                <div className="row m-auto">
+                    {data.map(info => {
+                        const card = (
+                            <div className=" col-md-4 col-6 img-container" key={info.id}>
+                                <div className="thumbnail image">
+                                    <a href={info.fullImg}>
+                                        <img className="rounded w-100" src={info.img} alt="rocks" />
+                                    </a>
+                                    <div className="caption">
+                                        <p className="span rounded p-2 lh-sm">
+                                            <span>{info.title}</span>
+                                            <br />
+                                            {info.description}
+                                        </p>
                                     </div>
                                 </div>
-                            );
-                            return card;
-                        })}
+                            </div>
+                        );
+                        return card;
+                    })}
                 </div>
             </section>
             <section className="page-section about-heading">
@@ -110,7 +80,7 @@ export default function SortCollection() {
             {/* Bootstrap core JS
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> */}
             {/* Core theme JS */}
-            {/* <script src="js/scripts.js"></script> */}
+            <script src="js/scripts.js"></script>
         </div>
     )
 }

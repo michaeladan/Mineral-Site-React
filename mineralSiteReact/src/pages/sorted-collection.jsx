@@ -1,11 +1,24 @@
 import { useState } from 'react';
-import ReactDom from "react-dom";
-import data from "../data";
+import AtoZ from "../components/aToZ";
+import AtoE from "../components/aToE";
+import FtoJ from "../components/fToJ";
+import KtoO from "../components/kToO";
+import PtoT from "../components/pToT";
+import UtoZ from "../components/uToZ";
 
 
+export default function SortedCollection() {
 
-
-export default function Collection(props) {
+    const [view, setView] = useState(
+        {
+            aToZ: true,
+            aToE: false,
+            fToJ: false,
+            kToO: false,
+            pToT: false,
+            uToZ: false
+        }
+    )
 
     return (
         <div>
@@ -23,34 +36,39 @@ export default function Collection(props) {
                 </a>
 
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a className="dropdown-item" href="/my-collection">Recent</a></li>
-                    <li><a className="dropdown-item" href="/my-collection-a2z">A-Z</a></li>
+
+                    <li><a id="aToZ" onClick={() => setView({ aToZ: true })} className="dropdown-item" href="#">A-Z</a></li>
+                    <li><a id="aToE" onClick={() => setView({ aToE: true })} className="dropdown-item" href="#">A-E</a></li>
+                    <li><a id="fToJ" onClick={() => setView({ fToJ: true })} className="dropdown-item" href="#">F-J</a></li>
+                    <li><a id="kToO" onClick={() => setView({ kToO: true })} className="dropdown-item" href="#">K-O</a></li>
+                    <li><a id="pToT" onClick={() => setView({ pToT: true })} className="dropdown-item" href="#">P-T</a></li>
+                    <li><a id="uToZ" onClick={() => setView({ uToZ: true })} className="dropdown-item" href="#">Q-Z</a></li>
+                    <li><a className="dropdown-item" href="/recent-collection">Recent</a></li>
+
                 </ul>
             </div>
 
             <section>
-                <div className="row m-auto">
 
-                    {data.map(info => {
-                        const card = (
-                            <div className=" col-md-4 col-6 img-container" key={info.id}>
-                                <div className="thumbnail image">
-                                    <a href={info.fullImg}>
-                                        <img className="rounded w-100" src={info.img} alt="rocks" />
-                                    </a>
-                                    <div className="caption">
-                                        <p className="span rounded p-2 lh-sm">
-                                            <span>{info.title}</span>
-                                            <br />
-                                            {info.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                        return card;
-                    })}
+                <div style={{ display: view.aToZ ? "initial" : "none" }}>
+                    <AtoZ />
                 </div>
+                <div style={{ display: view.aToE ? "initial" : "none" }}>
+                    <AtoE />
+                </div>
+                <div style={{ display: view.fToJ ? "initial" : "none" }}>
+                    <FtoJ />
+                </div>
+                <div style={{ display: view.kToO ? "initial" : "none" }}>
+                    <KtoO />
+                </div>
+                <div style={{ display: view.pToT ? "initial" : "none" }}>
+                    <PtoT />
+                </div>
+                <div style={{ display: view.uToZ ? "initial" : "none" }}>
+                    <UtoZ />
+                </div>
+
             </section>
             <section className="page-section about-heading">
                 <div className="container">
@@ -84,7 +102,7 @@ export default function Collection(props) {
             {/* Bootstrap core JS
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> */}
             {/* Core theme JS */}
-            {/* <script src="js/scripts.js"></script> */}
+            <script src="js/scripts.js"></script>
         </div>
     )
 }
