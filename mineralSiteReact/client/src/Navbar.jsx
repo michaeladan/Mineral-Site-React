@@ -2,9 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
 export default function Navbar() {
-    function refreshPage() {
-        window.location.reload(false);
-    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
             <div className="container">
@@ -22,7 +20,7 @@ export default function Navbar() {
                         <li className="nav-item px-lg-4"><Link className="nav-link text-uppercase" to="/where-to-collect">Where
                             to Collect</Link>
                         </li>
-                        <li className="nav-item px-lg-4" onClick={refreshPage}><Link className="nav-link text-uppercase" to="/recent-collection">My
+                        <li className="nav-item px-lg-4"><Link className="nav-link text-uppercase" to="/recent-collection">My
                             Collection</Link>
                         </li>
                     </ul>

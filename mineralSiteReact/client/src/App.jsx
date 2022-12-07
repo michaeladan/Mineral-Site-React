@@ -6,6 +6,7 @@ import RecentCollection from "./pages/recent-collection";
 import Layout from "./pages/layout";
 import NoPage from "./pages/NoPage";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Admin from "./pages/admin";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="where-to-collect" element={<Collect />} />
           <Route path="recent-collection" element={<RecentCollection />} />
           <Route path="sorted-collection" element={<SortedCollection />} />
+          <Route path="admin" element={<Admin />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

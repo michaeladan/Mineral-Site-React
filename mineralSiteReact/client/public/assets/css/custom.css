@@ -29,3 +29,8 @@ p span {
 .moab {
   max-height: 600px;
 }
+
+.inputSection {
+  color: pink;
+  margin-top: 200px;
+}
