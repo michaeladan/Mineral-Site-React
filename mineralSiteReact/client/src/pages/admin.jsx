@@ -20,11 +20,15 @@ export default function Admin() {
     }, [])
 
     const submitInfo = () => {
+
         Axios.post("http://localhost:3001/api/insert", {
             imageURL, mineralTitle, mineralDescription
-        }).then(() => {
-            console.log('successful insert')
-        })
+        });
+
+        setInfo([
+            ...info,
+            { imageURL, mineralTitle, mineralDescription },
+        ])
     }
 
     return (
@@ -36,7 +40,7 @@ export default function Admin() {
                     <span className="site-heading-upper text-primary mb-3">Welcome</span>
                 </h1>
             </header>
-            <section className="page-section clearfix">
+            {/* <section className="page-section clearfix">
                 <div className="container">
                     <div className="intro">
                         <img className="intro-img img-fluid mb-3 mb-lg-0 rounded" src="https://cdn.pixabay.com/photo/2020/07/05/03/20/desert-5371434__340.jpg" alt="..." />
@@ -55,16 +59,7 @@ export default function Admin() {
                     </div>
                 </div>
 
-            </section>
-
-            {/* {info.map(val => (
-                <div key={val.id}>
-                    <img src={val.imageURL} alt="test"></img>
-                    <h1>{val.mineralTitle}</h1>
-                    <p>{val.mineralDescription}</p>
-                </div>
-            ))} */}
-
+            </section> */}
 
             <section className="page-section cta">
                 <div className="container">

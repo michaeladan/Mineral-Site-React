@@ -1,7 +1,20 @@
-
-import data from "../data";
+import { useState, useEffect } from 'react';
+import Axios from 'axios'
 
 export default function RecentCollection() {
+
+    const [info, setInfo] = useState([{
+        id: "",
+        imageURL: "",
+        mineralTitle: "",
+        mineralDescription: ""
+    }])
+
+    useEffect(() => {
+        Axios.get('http://localhost:3001/api/get').then((response) => {
+            setInfo(response.data)
+        })
+    }, [])
 
     return (
         <div>
@@ -11,6 +24,8 @@ export default function RecentCollection() {
                     <span className="site-heading-lower">Behold</span>
                 </h1>
             </header>
+
+
 
             <div className="dropdown">
                 <a className="btn btn-secondary dropdown-toggle mx-3 mt-1 px-4" href="#" role="button" id="dropdownMenuLink"
@@ -25,20 +40,19 @@ export default function RecentCollection() {
             </div>
 
             <section>
-
                 <div className="row m-auto">
-                    {data.map(info => {
+                    {info.map(val => {
                         const card = (
-                            <div className=" col-md-4 col-6 img-container" key={info.id}>
+                            <div className=" col-md-4 col-6 img-container" key={val.id}>
                                 <div className="thumbnail image">
-                                    <a href={info.fullImg}>
-                                        <img className="rounded w-100" src={info.img} alt="rocks" />
+                                    <a href={val.imageURL}>
+                                        <img className="rounded w-100" src={val.imageURL} alt="rocks" />
                                     </a>
                                     <div className="caption">
                                         <p className="span rounded p-2 lh-sm">
-                                            <span>{info.title}</span>
+                                            <span>{val.mineralTitle}</span>
                                             <br />
-                                            {info.description}
+                                            {val.mineralDescription}
                                         </p>
                                     </div>
                                 </div>

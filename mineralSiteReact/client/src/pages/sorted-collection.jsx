@@ -42,7 +42,7 @@ export default function SortedCollection() {
                     <li><a id="fToJ" onClick={() => setView({ fToJ: true })} className="dropdown-item" href="#">F-J</a></li>
                     <li><a id="kToO" onClick={() => setView({ kToO: true })} className="dropdown-item" href="#">K-O</a></li>
                     <li><a id="pToT" onClick={() => setView({ pToT: true })} className="dropdown-item" href="#">P-T</a></li>
-                    <li><a id="uToZ" onClick={() => setView({ uToZ: true })} className="dropdown-item" href="#">Q-Z</a></li>
+                    <li><a id="uToZ" onClick={() => setView({ uToZ: true })} className="dropdown-item" href="#">U-Z</a></li>
                     <li><a className="dropdown-item" href="/recent-collection">Recent</a></li>
 
                 </ul>
