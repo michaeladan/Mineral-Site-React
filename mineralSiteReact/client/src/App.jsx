@@ -7,6 +7,7 @@ import Layout from "./pages/layout";
 import NoPage from "./pages/NoPage";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Admin from "./pages/admin";
+import Login from "./pages/login";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="recent-collection" element={<RecentCollection />} />
           <Route path="sorted-collection" element={<SortedCollection />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="login" element={<Login />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
