@@ -1,9 +1,21 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState, useEffect } from 'react';
-
-
+import { auth } from "../firebase"
 
 export default function Login() {
 
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const signIn = (e) => {
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                console.log(userCredential)
+            }).catch((error) => {
+                console.log(error)
+            })
+    }
 
     return (
         <div>
@@ -22,27 +34,25 @@ export default function Login() {
 
                 <form
                     className="row d-flex justify-content-center"
-
+                    onSubmit={signIn}
                 >
                     <div className='form-group w-25'>
                         <input
-                            type="username"
+                            type="email"
                             className="form-control mb-2 mt-2"
-                            placeholder='Username'
-                        // onChange={(e) => {
-                        //     setUsername(e.target.value);
-                        // }}
+                            placeholder='Email'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <input
                             type="password"
                             className="form-control mb-2 mt-2"
                             placeholder='Password'
-                        // onChange={(e) => {
-                        //     setPassword(e.target.value);
-                        // }}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
 
-                        <button type='button' className="btn btn-danger" >Submit</button>
+                        <button type='submit' className="btn btn-danger" >Submit</button>
                     </div>
                 </form>
 
