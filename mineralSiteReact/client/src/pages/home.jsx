@@ -5,7 +5,7 @@ export default function Home() {
         <div>
             <header>
                 <h1 className="site-heading text-center text-faded d-none d-lg-block">
-                    <span className="site-heading-upper text-primary mb-3">Welcome to a mineral site for Chuck Adan</span>
+                    <span className="site-heading-upper text-primary mb-3">Welcome to my mineral site!</span>
                     <span className="site-heading-lower">Check It Out</span>
                 </h1>
             </header>

@@ -8,24 +8,30 @@ import NoPage from "./pages/NoPage";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Admin from "./pages/admin";
 import Login from "./pages/login";
+import PrivateRoute from "./pages/privateRoute";
+import { AuthProvider } from "./pages/contexts/context";
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="get-started" element={<Started />} />
-          <Route path="where-to-collect" element={<Collect />} />
-          <Route path="recent-collection" element={<RecentCollection />} />
-          <Route path="sorted-collection" element={<SortedCollection />} />
-          <Route path="admin" element={<Admin />} />
-          <Route path="login" element={<Login />} />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="get-started" element={<Started />} />
+            <Route path="where-to-collect" element={<Collect />} />
+            <Route path="recent-collection" element={<RecentCollection />} />
+            <Route path="sorted-collection" element={<SortedCollection />} />
+
+            <Route path="admin" element={<PrivateRoute><Admin /></PrivateRoute>} />
+            <Route path="login" element={<Login />} />
+
+          </Route>
           <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 

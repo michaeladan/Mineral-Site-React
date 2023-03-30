@@ -1,8 +1,18 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios'
+import { auth } from '../firebase'
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from './contexts/context'
+import Login from "./login";
 
 export default function Admin() {
 
+    const [authUser, setAuthUser] = useState(null)
+    const navigate = useNavigate();
+    const { logout } = useAuth()
+
+    const [error, setError] = useState('')
     const [imageURL, setImage] = useState('')
     const [mineralTitle, setTitle] = useState('')
     const [mineralDescription, setDescription] = useState('')
@@ -12,6 +22,19 @@ export default function Admin() {
         mineralTitle: "",
         mineralDescription: ""
     }])
+
+    useEffect(() => {
+        const listen = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setAuthUser(user)
+            } else {
+                setAuthUser(null)
+            }
+        })
+        return () => {
+            listen();
+        }
+    }, [])
 
     useEffect(() => {
         Axios.get('http://localhost:3001/api/get').then((response) => {
@@ -31,35 +54,34 @@ export default function Admin() {
         ])
     }
 
+    async function handleLogout() {
+        setError('')
+        try {
+            await logout()
+            navigate("/login")
+        } catch {
+            setError("Logout Failed")
+        }
+    }
+
+
+    // const userSignOut = () => {
+    //     signOut(auth).then(() => {
+    //         navigate("/login")
+    //     }).catch(error => console.log(error))
+    // }
+
     return (
 
         <div>
 
             <header>
-                <h1 className="site-heading text-center text-faded d-none d-lg-block">
-                    <span className="site-heading-upper text-primary mb-3">Welcome</span>
-                </h1>
-            </header>
-            {/* <section className="page-section clearfix">
-                <div className="container">
-                    <div className="intro">
-                        <img className="intro-img img-fluid mb-3 mb-lg-0 rounded" src="https://cdn.pixabay.com/photo/2020/07/05/03/20/desert-5371434__340.jpg" alt="..." />
-                        <img src="" />
-                        <div className="intro-text left-0 text-center bg-faded p-5 rounded">
-                            <h2 className="section-heading mb-4">
-                                <span className="section-heading-upper">ADMIN</span>
-                                <span className="section-heading-lower">Landing page for adding photos</span>
-                            </h2>
-                            <p className="mb-3">To add photo, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <div className="intro-button mx-auto"><a className="btn btn-primary btn-xl" href="#!">Good luck!</a>
-                            </div>
-                        </div>
-                    </div>
+                <div className="site-heading text-center text-faded d-none d-lg-block">
+                    <h1>Welcome to the admin page!</h1>
+                    <button className="btn btn-danger" variant="link" onClick={handleLogout} >Sign Out</button>
+                    {error && <h3 className='d-flex justify-content-center'>{error}</h3>}
                 </div>
-
-            </section> */}
+            </header>
 
             <section className="page-section cta">
                 <div className="container">
