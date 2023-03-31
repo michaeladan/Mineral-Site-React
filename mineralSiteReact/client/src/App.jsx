@@ -23,10 +23,8 @@ function App() {
             <Route path="where-to-collect" element={<Collect />} />
             <Route path="recent-collection" element={<RecentCollection />} />
             <Route path="sorted-collection" element={<SortedCollection />} />
-
             <Route path="admin" element={<PrivateRoute><Admin /></PrivateRoute>} />
             <Route path="login" element={<Login />} />
-
           </Route>
           <Route path="*" element={<NoPage />} />
         </Routes>

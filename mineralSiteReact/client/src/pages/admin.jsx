@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios'
 import { auth } from '../firebase'
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './contexts/context'
-import Login from "./login";
 
 export default function Admin() {
 
@@ -63,13 +62,6 @@ export default function Admin() {
             setError("Logout Failed")
         }
     }
-
-
-    // const userSignOut = () => {
-    //     signOut(auth).then(() => {
-    //         navigate("/login")
-    //     }).catch(error => console.log(error))
-    // }
 
     return (
 
