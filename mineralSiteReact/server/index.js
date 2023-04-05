@@ -1,14 +1,16 @@
+require('dotenv').config();
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
 const mysql = require('mysql')
 
+
 const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'rootpass',
-    database: 'mineralDB'
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
 })
 
 app.use(cors())

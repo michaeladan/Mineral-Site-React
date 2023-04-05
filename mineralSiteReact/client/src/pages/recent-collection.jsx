@@ -12,9 +12,13 @@ export default function RecentCollection() {
 
     useEffect(() => {
         Axios.get('http://localhost:3001/api/get').then((response) => {
-            setInfo(response.data)
+            if (Array.isArray(response.data)) {
+                setInfo(response.data);
+            } else {
+                console.error("Response data is not an array:", response.data);
+            }
         })
-    }, [])
+    }, []);
 
     return (
         <div>
