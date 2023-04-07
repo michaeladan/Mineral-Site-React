@@ -25,7 +25,7 @@ export default function Collect() {
                         <div className="product-item-description d-flex me-auto">
                             <div className="bg-faded p-5 rounded">
                                 <p className="mb-0">Take a drive an hour and a half west from SLC to find Reno. From here,
-                                    head straign south into the desert. Follow some back roads for a while. Left at the
+                                    head south into the desert. Follow some back roads for a while. Left at the
                                     fork, right at the gate and another left when you see the abonded town. Then straight
                                     on till morning. Eventually you will see Gold Hill in all its glory.
                                 </p>

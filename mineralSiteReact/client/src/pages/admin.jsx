@@ -50,6 +50,7 @@ export default function Admin() {
         setInfo([
             ...info,
             { imageURL, mineralTitle, mineralDescription },
+            alert("Specimen added to collection!"),
         ])
     }
 
@@ -120,7 +121,7 @@ export default function Admin() {
                                             }}
                                         ></textarea>
                                     </div>
-                                    <button type="button" className="btn btn-danger" onClick={submitInfo}>Submit</button>
+                                    <button type="submit" className="btn btn-danger" onClick={submitInfo}>Submit</button>
                                 </form>
                             </div>
                         </div>
