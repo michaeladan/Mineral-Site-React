@@ -33,9 +33,7 @@ export default function UtoZ() {
                         const card = (
                             <div className=" col-md-4 col-6 img-container" key={val.id}>
                                 <div className="thumbnail image">
-                                    <a href={val.imageURL}>
-                                        <img className="rounded w-100" src={val.imageURL} alt="rocks" />
-                                    </a>
+                                    <img className="rounded w-100" src={val.imageURL} alt="rocks" />
                                     <div className="caption">
                                         <p className="span rounded p-2 lh-sm">
                                             <span>{val.mineralTitle}</span>

@@ -1,3 +1,5 @@
+// This data was available before the site became more dynamic. Not currently needed.
+
 export default [
     {
         id: 1,
